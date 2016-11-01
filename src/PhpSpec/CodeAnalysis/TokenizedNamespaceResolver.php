@@ -43,7 +43,7 @@ final class TokenizedNamespaceResolver implements NamespaceResolver
 
             switch ($this->state) {
                 case self::STATE_READING_NAMESPACE:
-                    if (';' == $token) {
+                    if (';' == $token || '{' == $token) {
                         $this->currentNamespace = trim($this->currentNamespace);
                         $this->state = self::STATE_DEFAULT;
                     }
